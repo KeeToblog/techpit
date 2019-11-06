@@ -1,0 +1,13 @@
+<div class="listnewPage">
+  <div class="container">
+    <%= form_with model: @list, url: { action: :create }, class: "new_list", local: true do |f| %>
+    <%# form_withはRails5.1から提供されているHTMLフォーム生成メソッド。@listがモデルオブジェクトで、URLとHTTPメソッドを自動推測してくれる。今回newアクションの@listは空なので、createアクションの@listに飛ぶ。（空じゃないときはupdateアクションに飛ぶ）%>
+      <% if @list.errors.any? %>
+        <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
+      <% end %>
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
+      <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
+    <% end %>
+  </div>
+</div>

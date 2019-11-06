@@ -1,0 +1,17 @@
+    <header class="header">
+      <nav class="nav">
+        <ul class="header_menu">
+          <li class="nav-link"><%= current_user.name %>さん</li>
+          <li class="header_menu_title"><%= link_to("kanban", "/") %>
+          <%#= link_to "kanban", root_path, class: "nav-link", method: :get %></li>
+          <li>
+            <ul class="header_menu_inner">
+              <li><%= link_to "リストを作成", list_new_path, class: "nav-link listNew" %></li>
+              <li><%= link_to "サインアウト", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+              <%# classが削除する対象？%>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <%# ==========ここまで追加する========== %>

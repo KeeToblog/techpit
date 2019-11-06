@@ -1,0 +1,27 @@
+<div class='carddetailPage'>
+  <div class="container">
+    <div class="cardContents">
+      <div class="cardContents_title">
+        <div>タイトル</div>
+        <h2><%= @card.title %></h2>
+      </div>
+      <div class="cardContents_memo">
+        <div>メモ</div>
+        <div><%= @card.memo %></div>
+      </div>
+      <div class="cardContents_listStatus">
+        <div>リスト名</div>
+        <div><%= @card.list.title %></div>
+      </div>
+
+      <div class="cardContents_btnArea">
+        <%= link_to '編集する', edit_list_card_path(@card.list, @card), class: "edit_btn" %>
+        <%# カード編集ページに飛ばす。その際、「どのリストに紐づいているカードなのか」と「カード自体」の情報が必要になるので、２つ引数を渡す。%>
+
+        <%= link_to '削除する', list_card_path(@card.list, @card), class: "text-danger delte_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか？" } %>
+        <%# カード削除機能を発動。カード編集と同じ情報が必要。list_cardパスのメソッドは３種類あるのでDELETEを指定。削除確認のポップアップ機能もつける%>
+      </div>
+
+    </div>
+  </div>
+</div>
